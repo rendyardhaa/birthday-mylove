@@ -10,6 +10,8 @@
 }
 
 :root {
+    color-scheme: light;  /* Paksa light mode meski HP dark mode */
+    
     /* ─── Romantic Light Palette ─── */
     --primary-bg:        #FDF6F0;          /* Warm Ivory — buttery, not stark white   */
     --bg-gradient-top:   #FEF0F4;          /* Blush pink top                          */
@@ -1322,7 +1324,8 @@ body.dark-mode {
 
 /* ─── Memory Row ─── */
 .memory-row {
-    overflow: hidden;       /* clip track saat animasi scroll */
+    overflow-x: clip;      /* Safari-safe: clip horizontal tapi tidak terlalu agresif */
+    overflow-y: visible;   /* Biarkan vertical overflow visible */
     padding: 3rem 0;        /* Ruang ekstra atas-bawah agar hiasan luar bingkai tidak terpotong (clip) */
     position: relative;
     width: 100%;
@@ -1332,8 +1335,9 @@ body.dark-mode {
 .memory-track {
     display: flex;
     flex-wrap: nowrap;
-    width: max-content;     /* tumbuh sesuai total lebar semua card */
-    will-change: transform;
+    /* width dihitung via JavaScript untuk Safari compatibility */
+    /* HAPUS: width: max-content; */
+    /* HAPUS: will-change: transform; — bisa cause rendering issues di Safari */
     padding: 0.4rem 0;      /* sedikit ruang atas-bawah agar shadow card tidak terpotong */
 }
 
