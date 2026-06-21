@@ -1324,8 +1324,7 @@ body.dark-mode {
 
 /* ─── Memory Row ─── */
 .memory-row {
-    overflow-x: clip;      /* Safari-safe: clip horizontal tapi tidak terlalu agresif */
-    overflow-y: visible;   /* Biarkan vertical overflow visible */
+    overflow: hidden;
     padding: 3rem 0;        /* Ruang ekstra atas-bawah agar hiasan luar bingkai tidak terpotong (clip) */
     position: relative;
     width: 100%;
@@ -1336,6 +1335,7 @@ body.dark-mode {
     display: flex;
     flex-wrap: nowrap;
     width: max-content;     /* tumbuh sesuai total lebar semua card */
+    min-width: 100%;        /* fallback: agar track tidak width=0 di WebKit iOS */
     padding: 0.4rem 0;      /* sedikit ruang atas-bawah agar shadow card tidak terpotong */
 }
 
