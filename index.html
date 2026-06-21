@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Surprise</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Great+Vibes&family=Lato:ital,wght@0,300;0,400;1,300&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- Stage 1: Countdown -->
+    <section id="countdown-stage" class="stage active">
+        <!-- Floating Hearts Background -->
+        <div class="floating-hearts" id="floating-hearts"></div>
+
+        <!-- Romantic Floral Ornaments - Top Left -->
+        <div class="floral-ornament top-left">
+            <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="petalGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#D4888F;stop-opacity:0.9" />
+                        <stop offset="100%" style="stop-color:#E8A0A8;stop-opacity:0.75" />
+                    </linearGradient>
+                    <linearGradient id="leafGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#6B8F71;stop-opacity:0.75" />
+                        <stop offset="100%" style="stop-color:#95B99A;stop-opacity:0.6" />
+                    </linearGradient>
+                </defs>
+                <!-- Main Rose - Layered Petals -->
+                <g transform="translate(60, 60)">
+                    <ellipse cx="0" cy="-15" rx="20" ry="28" fill="url(#petalGrad1)" transform="rotate(0)"
+                        opacity="0.9" />
+                    <ellipse cx="0" cy="-15" rx="20" ry="28" fill="url(#petalGrad1)" transform="rotate(45)" />
+                    <ellipse cx="0" cy="-15" rx="20" ry="28" fill="url(#petalGrad1)" transform="rotate(90)" />
+                    <ellipse cx="0" cy="-15" rx="20" ry="28" fill="url(#petalGrad1)" transform="rotate(135)" />
+                    <ellipse cx="0" cy="-15" rx="18" ry="25" fill="#E8A0A8" transform="rotate(22.5)" opacity="0.8" />
+                    <ellipse cx="0" cy="-15" rx="18" ry="25" fill="#E8A0A8" transform="rotate(67.5)" opacity="0.8" />
+                    <ellipse cx="0" cy="-15" rx="18" ry="25" fill="#E8A0A8" transform="rotate(112.5)" opacity="0.8" />
+                    <ellipse cx="0" cy="-15" rx="18" ry="25" fill="#E8A0A8" transform="rotate(157.5)" opacity="0.8" />
+                    <circle cx="0" cy="0" r="12" fill="#C9707A" />
+                    <circle cx="0" cy="0" r="6" fill="#E8A0A8" />
+                </g>
+                <!-- Large Leaves -->
+                <path d="M30,100 Q55,65 90,80 Q70,110 40,105" fill="url(#leafGrad1)" opacity="0.7" />
+                <path d="M100,30 Q65,55 80,90 Q110,70 105,40" fill="url(#leafGrad1)" opacity="0.7" />
+                <path d="M20,70 Q35,50 55,55 Q45,75 25,75" fill="#95B99A" opacity="0.6" />
+                <!-- Secondary Rose -->
+                <g transform="translate(120, 90)">
+                    <ellipse cx="0" cy="-8" rx="12" ry="16" fill="#E8A0A8" transform="rotate(0)" opacity="0.8" />
+                    <ellipse cx="0" cy="-8" rx="12" ry="16" fill="#E8A0A8" transform="rotate(60)" opacity="0.8" />
+                    <ellipse cx="0" cy="-8" rx="12" ry="16" fill="#E8A0A8" transform="rotate(120)" opacity="0.8" />
+                    <circle cx="0" cy="0" r="7" fill="#C9707A" />
+                </g>
+                <!-- Buds -->
+                <circle cx="140" cy="50" r="8" fill="#C9707A" opacity="0.65" />
+                <circle cx="50" cy="140" r="6" fill="#E8A0A8" opacity="0.55" />
+                <ellipse cx="140" cy="42" rx="5" ry="8" fill="#E8A0A8" opacity="0.5" />
+                <!-- Vines -->
+                <path d="M90,90 Q130,100 150,140 Q160,180 130,200" fill="none" stroke="#6B8F71" stroke-width="1.5"
+                    opacity="0.5" />
+                <path d="M70,80 Q40,120 50,160" fill="none" stroke="#95B99A" stroke-width="1" opacity="0.45" />
+                <!-- Tiny Flowers -->
+                <circle cx="160" cy="150" r="4" fill="#E8A0A8" opacity="0.5" />
+                <circle cx="45" cy="170" r="3" fill="#C9707A" opacity="0.4" />
+            </svg>
+        </div>
+
+        <!-- Romantic Floral Ornaments - Top Right -->
+        <div class="floral-ornament top-right">
+            <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="petalGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#E8A0A8;stop-opacity:0.9" />
+                        <stop offset="100%" style="stop-color:#C9707A;stop-opacity:0.75" />
+                    </linearGradient>
+                    <linearGradient id="leafGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#95B99A;stop-opacity:0.7" />
+                        <stop offset="100%" style="stop-color:#6B8F71;stop-opacity:0.55" />
+                    </linearGradient>
+                </defs>
+                <!-- Main Rose -->
+                <g transform="translate(240, 60)">
+                    <ellipse cx="0" cy="-15" rx="20" ry="28" fill="url(#petalGrad2)" transform="rotate(0)" />
+                    <ellipse cx="0" cy="-15" rx="20" ry="28" fill="url(#petalGrad2)" transform="rotate(45)" />
+                    <ellipse cx="0" cy="-15" rx="20" ry="28" fill="url(#petalGrad2)" transform="rotate(90)" />
+                    <ellipse cx="0" cy="-15" rx="20" ry="28" fill="url(#petalGrad2)" transform="rotate(135)" />
+                    <ellipse cx="0" cy="-15" rx="18" ry="25" fill="#E11D48" transform="rotate(22.5)" />
+                    <ellipse cx="0" cy="-15" rx="18" ry="25" fill="#E11D48" transform="rotate(67.5)" />
+                    <ellipse cx="0" cy="-15" rx="18" ry="25" fill="#E11D48" transform="rotate(112.5)" />
+                    <ellipse cx="0" cy="-15" rx="18" ry="25" fill="#E11D48" transform="rotate(157.5)" />
+                    <circle cx="0" cy="0" r="12" fill="#FB7185" />
+                    <circle cx="0" cy="0" r="6" fill="#E11D48" />
+                </g>
+                <!-- Large Leaves -->
+                <path d="M270,100 Q245,65 210,80 Q230,110 260,105" fill="url(#leafGrad2)" />
+                <path d="M200,30 Q235,55 220,90 Q190,70 195,40" fill="url(#leafGrad2)" />
+                <path d="M280,70 Q265,50 245,55 Q255,75 275,75" fill="#22c55e" opacity="0.8" />
+                <!-- Secondary Rose -->
+                <g transform="translate(180, 90)">
+                    <ellipse cx="0" cy="-8" rx="12" ry="16" fill="#C9707A" transform="rotate(0)" opacity="0.8" />
+                    <ellipse cx="0" cy="-8" rx="12" ry="16" fill="#C9707A" transform="rotate(60)" opacity="0.8" />
+                    <ellipse cx="0" cy="-8" rx="12" ry="16" fill="#C9707A" transform="rotate(120)" opacity="0.8" />
+                    <circle cx="0" cy="0" r="7" fill="#E8A0A8" />
+                </g>
+                <!-- Buds -->
+                <circle cx="160" cy="50" r="8" fill="#E8A0A8" opacity="0.65" />
+                <circle cx="250" cy="140" r="6" fill="#C9707A" opacity="0.55" />
+                <ellipse cx="160" cy="42" rx="5" ry="8" fill="#C9707A" opacity="0.5" />
+                <!-- Vines -->
+                <path d="M210,90 Q170,100 150,140 Q140,180 170,200" fill="none" stroke="#6B8F71" stroke-width="1.5"
+                    opacity="0.5" />
+                <path d="M230,80 Q260,120 250,160" fill="none" stroke="#95B99A" stroke-width="1" opacity="0.45" />
+                <!-- Tiny Flowers -->
+                <circle cx="140" cy="150" r="4" fill="#C9707A" opacity="0.5" />
+                <circle cx="255" cy="170" r="3" fill="#E8A0A8" opacity="0.4" />
+            </svg>
+        </div>
+
+        <!-- Romantic Floral Ornaments - Bottom Left -->
+        <div class="floral-ornament bottom-left">
+            <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="petalGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#C9707A;stop-opacity:0.82" />
+                        <stop offset="100%" style="stop-color:#E8A0A8;stop-opacity:0.65" />
+                    </linearGradient>
+                </defs>
+                <!-- Medium Rose -->
+                <g transform="translate(60, 240)">
+                    <ellipse cx="0" cy="-10" rx="15" ry="22" fill="url(#petalGrad3)" transform="rotate(0)"
+                        opacity="0.9" />
+                    <ellipse cx="0" cy="-10" rx="15" ry="22" fill="url(#petalGrad3)" transform="rotate(60)"
+                        opacity="0.9" />
+                    <ellipse cx="0" cy="-10" rx="15" ry="22" fill="url(#petalGrad3)" transform="rotate(120)"
+                        opacity="0.9" />
+                    <ellipse cx="0" cy="-10" rx="13" ry="18" fill="#E8A0A8" transform="rotate(30)" opacity="0.75" />
+                    <ellipse cx="0" cy="-10" rx="13" ry="18" fill="#E8A0A8" transform="rotate(90)" opacity="0.75" />
+                    <ellipse cx="0" cy="-10" rx="13" ry="18" fill="#E8A0A8" transform="rotate(150)" opacity="0.75" />
+                    <circle cx="0" cy="0" r="9" fill="#C9707A" />
+                    <circle cx="0" cy="0" r="4" fill="#E8A0A8" />
+                </g>
+                <!-- Leaves -->
+                <path d="M85,225 Q65,240 50,230 Q55,215 80,220" fill="#6B8F71" opacity="0.6" />
+                <path d="M40,260 Q55,250 65,255 Q60,270 45,265" fill="#95B99A" opacity="0.5" />
+                <path d="M90,260 Q110,250 120,260 Q115,275 95,270" fill="#6B8F71" opacity="0.5" />
+                <!-- Small Buds -->
+                <circle cx="100" cy="210" r="5" fill="#E8A0A8" opacity="0.6" />
+                <circle cx="30" cy="250" r="4" fill="#C9707A" opacity="0.5" />
+                <ellipse cx="105" cy="205" rx="4" ry="6" fill="#C9707A" opacity="0.4" />
+                <!-- Vine -->
+                <path d="M75,245 Q100,230 120,210 Q140,190 150,160" fill="none" stroke="#6B8F71" stroke-width="1"
+                    opacity="0.45" />
+            </svg>
+        </div>
+
+        <!-- Romantic Floral Ornaments - Bottom Right -->
+        <div class="floral-ornament bottom-right">
+            <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="petalGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#E8A0A8;stop-opacity:0.82" />
+                        <stop offset="100%" style="stop-color:#C9707A;stop-opacity:0.65" />
+                    </linearGradient>
+                </defs>
+                <!-- Medium Rose -->
+                <g transform="translate(240, 240)">
+                    <ellipse cx="0" cy="-10" rx="15" ry="22" fill="url(#petalGrad4)" transform="rotate(0)"
+                        opacity="0.9" />
+                    <ellipse cx="0" cy="-10" rx="15" ry="22" fill="url(#petalGrad4)" transform="rotate(60)"
+                        opacity="0.9" />
+                    <ellipse cx="0" cy="-10" rx="15" ry="22" fill="url(#petalGrad4)" transform="rotate(120)"
+                        opacity="0.9" />
+                    <ellipse cx="0" cy="-10" rx="13" ry="18" fill="#C9707A" transform="rotate(30)" opacity="0.75" />
+                    <ellipse cx="0" cy="-10" rx="13" ry="18" fill="#C9707A" transform="rotate(90)" opacity="0.75" />
+                    <ellipse cx="0" cy="-10" rx="13" ry="18" fill="#C9707A" transform="rotate(150)" opacity="0.75" />
+                    <circle cx="0" cy="0" r="9" fill="#E8A0A8" />
+                    <circle cx="0" cy="0" r="4" fill="#C9707A" />
+                </g>
+                <!-- Leaves -->
+                <path d="M215,225 Q235,240 250,230 Q245,215 220,220" fill="#6B8F71" opacity="0.6" />
+                <path d="M260,260 Q245,250 235,255 Q240,270 255,265" fill="#95B99A" opacity="0.5" />
+                <path d="M210,260 Q190,250 180,260 Q185,275 205,270" fill="#6B8F71" opacity="0.5" />
+                <!-- Small Buds -->
+                <circle cx="200" cy="210" r="5" fill="#C9707A" opacity="0.6" />
+                <circle cx="270" cy="250" r="4" fill="#E8A0A8" opacity="0.5" />
+                <ellipse cx="195" cy="205" rx="4" ry="6" fill="#E8A0A8" opacity="0.4" />
+                <!-- Vine -->
+                <path d="M225,245 Q200,230 180,210 Q160,190 150,160" fill="none" stroke="#6B8F71" stroke-width="1"
+                    opacity="0.45" />
+            </svg>
+        </div>
+
+        <!-- Decorative Sparkles -->
+        <div class="sparkle-decoration sparkle-1"></div>
+        <div class="sparkle-decoration sparkle-2"></div>
+        <div class="sparkle-decoration sparkle-3"></div>
+        <div class="sparkle-decoration sparkle-4"></div>
+        <div class="sparkle-decoration sparkle-5"></div>
+
+        <div class="countdown-content">
+            <span class="countdown-eyebrow">Sebelum Malam Berganti...</span>
+            <span class="heart-icon">♡</span>
+            <h1 class="countdown-title">Menuju Hari Spesialmu</h1>
+            <h2 class="countdown-name">Cleomonica June Aisha</h2>
+            <div class="countdown-timer">
+                <div class="time-block">
+                    <span id="days" class="time-value">00</span>
+                    <span class="time-label">Hari</span>
+                </div>
+                <div class="time-separator">:</div>
+                <div class="time-block">
+                    <span id="hours" class="time-value">00</span>
+                    <span class="time-label">Jam</span>
+                </div>
+                <div class="time-separator">:</div>
+                <div class="time-block">
+                    <span id="minutes" class="time-value">00</span>
+                    <span class="time-label">Menit</span>
+                </div>
+                <div class="time-separator">:</div>
+                <div class="time-block">
+                    <span id="seconds" class="time-value">00</span>
+                    <span class="time-label">Detik</span>
+                </div>
+            </div>
+            <p class="countdown-subtitle">dengan sepenuh hati, untukmu</p>
+            <div class="romantic-divider">
+                <span>✿</span>
+                <span class="divider-line"></span>
+                <span>♥</span>
+                <span class="divider-line"></span>
+                <span>✿</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stage 1.2: Cinematic Exploding Greeting -->
+    <section id="greeting-stage" class="stage">
+        <h1 class="exploding-text">Selamat Ulang Tahun,<br>Sayangggkuuuu!</h1>
+    </section>
+
+    <!-- Stage 1.5: Birthday Cake Surprise -->
+    <section id="cake-stage" class="stage">
+        <!-- Wind Effect Container -->
+        <div class="wind-container" id="wind-container"></div>
+
+        <!-- Spotlight & Ambient -->
+        <div class="spotlight"></div>
+        <div class="cake-fireflies"></div>
+
+        <div class="cake-container">
+            <h2 class="cake-title">Make a Wish!</h2>
+
+            <div class="iso-cake" id="birthday-cake">
+                <!-- Bottom Tier -->
+                <div class="iso-tier iso-bottom">
+                    <div class="iso-body"></div>
+                    <div class="iso-top"></div>
+                </div>
+                <!-- Middle Tier -->
+                <div class="iso-tier iso-middle">
+                    <div class="iso-body"></div>
+                    <div class="iso-top"></div>
+                </div>
+                <!-- Top Tier -->
+                <div class="iso-tier iso-top-tier">
+                    <div class="iso-body"></div>
+                    <div class="iso-top"></div>
+                </div>
+
+                <!-- Candle -->
+                <div class="iso-candle">
+                    <div class="candle-body"></div>
+                    <div class="candle-top"></div>
+                    <div class="flame"></div>
+                    <div class="smoke"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stage 2: Mailbox / Letter -->
+    <section id="mailbox-stage" class="stage">
+        <!-- Floating Petals Background -->
+        <div class="floating-petals" id="floating-petals"></div>
+        <div class="mailbox-wrapper">
+            <p class="mailbox-instruction">Ada pesan khusus untukmu. Ketuk kotak posnya!</p>
+
+            <!-- Vintage Mailbox 3D -->
+            <div class="vintage-mailbox" id="vintage-mailbox">
+                <!-- Stand/Pole -->
+                <div class="mailbox-pole"></div>
+
+                <!-- Main Body -->
+                <div class="mailbox-body">
+                    <!-- Red Flag -->
+                    <div class="mailbox-flag"></div>
+                    <!-- Door -->
+                    <div class="mailbox-door">
+                        <div class="door-handle"></div>
+                        <div class="door-slot"></div>
+                    </div>
+                </div>
+
+                <!-- The Letter that flies out -->
+                <div class="vintage-letter" id="vintage-letter">
+                    <div class="wax-seal"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="fountain-fireworks" id="fountain-fireworks"></div>
+
+        <!-- Letter Container with Romantic Effects -->
+        <div class="letter-container" id="letter-container">
+            <!-- Floating Hearts in Letter -->
+            <div class="letter-hearts" id="letter-hearts"></div>
+
+            <!-- Sparkle Effects -->
+            <div class="letter-sparkles" id="letter-sparkles"></div>
+
+            <div class="letter">
+                <div class="letter-header">
+                    <div class="letter-flower left">✿</div>
+                    <div class="letter-title">Untukmu,</div>
+                    <div class="letter-flower right">✿</div>
+                </div>
+                <div class="letter-paper">
+                    <p id="letter-text" class="letter-text"></p>
+                </div>
+                <div class="letter-footer">
+                    <span>✿</span>
+                    <span>♥</span>
+                    <span>✿</span>
+                </div>
+                <button id="open-memories-btn" class="open-memories-btn">
+                    <span class="btn-icon">♥</span>
+                    Buka Kenangan Kita
+                    <span class="btn-icon">♥</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stage 3: Memories -->
+    <section id="memories-stage" class="stage">
+        <!-- Galaxy canvas injected by galaxy.js -->
+
+        <div class="hero-banner">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h2 class="hero-title">Happy Birthday, Sayanggg</h2>
+                <p class="hero-subtitle">Hari ini semesta ikut tersenyum, merayakan lahirnya perempuan paling istimewa
+                    di hidupku.</p>
+            </div>
+        </div>
+
+        <div class="memory-section">
+            <h3 class="memory-section-title">Dari sekian banyak hari, hari ini yang paling aku syukuri...</h3>
+            <div class="memory-row highlight-row" data-autoscroll>
+                <div class="memory-card highlight"><img src="assets/photos/utama/IMG-20250608-WA0061.jpg"
+                        alt="Foto Utama" class="card-img">
+                    <p class="card-caption">Momen Indah</p>
+                </div>
+                <div class="memory-card highlight"><img src="assets/photos/utama/IMG-20250716-WA0078.jpg"
+                        alt="Foto Utama" class="card-img">
+                    <p class="card-caption">Selalu Bersamamu</p>
+                </div>
+                <div class="memory-card highlight"><img src="assets/photos/utama/IMG-20250719-WA0059.jpg"
+                        alt="Foto Utama" class="card-img">
+                    <p class="card-caption">Tawa Bahagia</p>
+                </div>
+                <div class="memory-card highlight"><img src="assets/photos/utama/IMG-20250720-WA0035.jpg"
+                        alt="Foto Utama" class="card-img">
+                    <p class="card-caption">Hari Terbaik</p>
+                </div>
+                <div class="memory-card highlight"><img src="assets/photos/utama/IMG-20250801-WA0243.jpg"
+                        alt="Foto Utama" class="card-img">
+                    <p class="card-caption">Cinta Kita</p>
+                </div>
+                <div class="memory-card highlight"><img src="assets/photos/utama/IMG-20250801-WA0245.jpg"
+                        alt="Foto Utama" class="card-img">
+                    <p class="card-caption">Tak Terlupakan</p>
+                </div>
+                <div class="memory-card highlight"><img src="assets/photos/utama/DSC08760.jpg" alt="Foto Utama"
+                        class="card-img">
+                    <p class="card-caption">Anggun</p>
+                </div>
+                <div class="memory-card highlight"><img src="assets/photos/utama/DSC08764.jpg" alt="Foto Utama"
+                        class="card-img">
+                    <p class="card-caption">Mempesona</p>
+                </div>
+                <div class="memory-card highlight"><img src="assets/photos/utama/DSC08766.jpg" alt="Foto Utama"
+                        class="card-img">
+                    <p class="card-caption">Cantik Sekali</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="memory-section">
+            <h3 class="memory-section-title">Karena kamu yang selalu ngasih warna di setiap cerita kita.</h3>
+            <div class="memory-row" data-autoscroll>
+                <div class="memory-card"><img src="assets/photos/second/IMG-20250312-WA0050.jpg" alt="Foto"
+                        class="card-img">
+                    <p class="card-caption">Senyum itu</p>
+                </div>
+                <div class="memory-card"><img src="assets/photos/second/IMG-20250312-WA0066.jpg" alt="Foto"
+                        class="card-img">
+                    <p class="card-caption">Hari yang indah</p>
+                </div>
+                <div class="memory-card"><img src="assets/photos/second/IMG-20250331-WA0027.jpg" alt="Foto"
+                        class="card-img">
+                    <p class="card-caption">Selalu manis</p>
+                </div>
+                <div class="memory-card"><img src="assets/photos/second/IMG-20250511-WA0199.jpg" alt="Foto"
+                        class="card-img">
+                    <p class="card-caption">Bersamamu</p>
+                </div>
+                <div class="memory-card"><img src="assets/photos/second/IMG-20250511-WA0252.jpg" alt="Foto"
+                        class="card-img">
+                    <p class="card-caption">Ceria selalu</p>
+                </div>
+                <div class="memory-card"><img src="assets/photos/second/IMG-20250512-WA0052.jpg" alt="Foto"
+                        class="card-img">
+                    <p class="card-caption">Tak tergantikan</p>
+                </div>
+                <div class="memory-card"><img src="assets/photos/second/IMG-20250605-WA0042.jpg" alt="Foto"
+                        class="card-img">
+                    <p class="card-caption">Manis sekali</p>
+                </div>
+                <div class="memory-card"><img src="assets/photos/second/IMG-20250605-WA0049.jpg" alt="Foto"
+                        class="card-img">
+                    <p class="card-caption">Penuh cinta</p>
+                </div>
+                <div class="memory-card"><img src="assets/photos/second/IMG-20250611-WA0030.jpg" alt="Foto"
+                        class="card-img">
+                    <p class="card-caption">Waktu kita</p>
+                </div>
+                <div class="memory-card"><img src="assets/photos/second/IMG-20250801-WA0273.jpg" alt="Foto"
+                        class="card-img">
+                    <p class="card-caption">Tertawa riang</p>
+                </div>
+                <div class="memory-card"><img src="assets/photos/second/IMG-20250801-WA0301.jpg" alt="Foto"
+                        class="card-img">
+                    <p class="card-caption">My love</p>
+                </div>
+                <div class="memory-card"><img src="assets/photos/second/IMG-20250801-WA0327.jpg" alt="Foto"
+                        class="card-img">
+                    <p class="card-caption">Keseruan kita</p>
+                </div>
+                <div class="memory-card"><img src="assets/photos/second/IMG-20250801-WA0343.jpg" alt="Foto"
+                        class="card-img">
+                    <p class="card-caption">Selalu ingat</p>
+                </div>
+                <div class="memory-card"><img src="assets/photos/second/IMG-20250908-WA0009.jpg" alt="Foto"
+                        class="card-img">
+                    <p class="card-caption">Momen kecil</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="memory-section">
+            <h3 class="memory-section-title">Selamat bertambah usia ya, kesayangankuuu.</h3>
+            <div class="memory-row highlight-row" data-autoscroll>
+                <div class="memory-card highlight"><img src="assets/photos/utama/IMG-20250914-WA0132.jpg"
+                        alt="Foto Utama" class="card-img">
+                    <p class="card-caption">Senyum Manismu</p>
+                </div>
+                <div class="memory-card highlight"><img src="assets/photos/utama/IMG-20251025-WA0238.jpg"
+                        alt="Foto Utama" class="card-img">
+                    <p class="card-caption">My Everything</p>
+                </div>
+                <div class="memory-card highlight"><img src="assets/photos/utama/IMG-20251202-WA0127.jpg"
+                        alt="Foto Utama" class="card-img">
+                    <p class="card-caption">Selamanya</p>
+                </div>
+                <div class="memory-card highlight"><img src="assets/photos/utama/IMG-20260313-WA0323.jpg"
+                        alt="Foto Utama" class="card-img">
+                    <p class="card-caption">Bersamamu</p>
+                </div>
+                <div class="memory-card highlight"><img src="assets/photos/utama/IMG-20260325-WA0246.jpg"
+                        alt="Foto Utama" class="card-img">
+                    <p class="card-caption">Sangat Spesial</p>
+                </div>
+                <div class="memory-card highlight"><img src="assets/photos/utama/MONICA-%20DSC06965.jpg"
+                        alt="Foto Utama" class="card-img">
+                    <p class="card-caption">Bidadariku</p>
+                </div>
+                <div class="memory-card highlight"><img src="assets/photos/utama/MONICA-%20DSC06966.jpg"
+                        alt="Foto Utama" class="card-img">
+                    <p class="card-caption">Tatapan Indah</p>
+                </div>
+                <div class="memory-card highlight"><img src="assets/photos/utama/MONICA-%20DSC06978.jpg"
+                        alt="Foto Utama" class="card-img">
+                    <p class="card-caption">Sempurna</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="memory-section">
+            <h3 class="memory-section-title">Semoga senyum ini selalu ada buat aku, hari ini dan selamanyaaa.</h3>
+            <div class="memory-row" data-autoscroll>
+                <div class="memory-card"><img src="assets/photos/second/IMG-20250914-WA0117.jpg" alt="Foto"
+                        class="card-img">
+                    <p class="card-caption">Cerita kita</p>
+                </div>
+                <div class="memory-card"><img src="assets/photos/second/IMG-20251031-WA0030.jpg" alt="Foto"
+                        class="card-img">
+                    <p class="card-caption">Sederhana bahagia</p>
+                </div>
+                <div class="memory-card"><img src="assets/photos/second/IMG-20251106-WA0083.jpg" alt="Foto"
+                        class="card-img">
+                    <p class="card-caption">Langkah kita</p>
+                </div>
+                <div class="memory-card"><img src="assets/photos/second/IMG-20251113-WA0015.jpg" alt="Foto"
+                        class="card-img">
+                    <p class="card-caption">Bersama terus</p>
+                </div>
+                <div class="memory-card"><img src="assets/photos/second/IMG-20251203-WA0007.jpg" alt="Foto"
+                        class="card-img">
+                    <p class="card-caption">Hari cerah</p>
+                </div>
+                <div class="memory-card"><img src="assets/photos/second/IMG-20251224-WA0021(1).jpg" alt="Foto"
+                        class="card-img">
+                    <p class="card-caption">Penuh tawa</p>
+                </div>
+                <div class="memory-card"><img src="assets/photos/second/IMG-20260305-WA0027.jpg" alt="Foto"
+                        class="card-img">
+                    <p class="card-caption">Selalu dekat</p>
+                </div>
+                <div class="memory-card"><img src="assets/photos/second/IMG-20260305-WA0130.jpg" alt="Foto"
+                        class="card-img">
+                    <p class="card-caption">Tatapanmu</p>
+                </div>
+                <div class="memory-card"><img src="assets/photos/second/IMG-20260308-WA0069.jpg" alt="Foto"
+                        class="card-img">
+                    <p class="card-caption">Spontanitas</p>
+                </div>
+                <div class="memory-card"><img src="assets/photos/second/IMG-20260308-WA0070.jpg" alt="Foto"
+                        class="card-img">
+                    <p class="card-caption">Keseruan lagi</p>
+                </div>
+                <div class="memory-card"><img src="assets/photos/second/IMG-20260313-WA0274.jpg" alt="Foto"
+                        class="card-img">
+                    <p class="card-caption">Banyak cerita</p>
+                </div>
+                <div class="memory-card"><img src="assets/photos/second/IMG-20260313-WA0376.jpg" alt="Foto"
+                        class="card-img">
+                    <p class="card-caption">Selalu ada</p>
+                </div>
+                <div class="memory-card"><img src="assets/photos/second/IMG-20260314-WA0037.jpg" alt="Foto"
+                        class="card-img">
+                    <p class="card-caption">Hanya kita</p>
+                </div>
+                <div class="memory-card"><img src="assets/photos/second/IMG-20260318-WA0037.jpg" alt="Foto"
+                        class="card-img">
+                    <p class="card-caption">Forever</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Background Music -->
+    <audio id="bgm" src="assets/audio/bgm.mp3" loop preload="auto"></audio>
+    <button id="music-toggle" class="music-toggle" aria-label="Play/Pause Music">🎵</button>
+
+    <script src="js/countdown.js"></script>
+    <script src="js/fireworks.js"></script>
+    <script src="js/typewriter.js"></script>
+    <script src="js/galaxy.js"></script>
+    <script src="js/autoscroll.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
