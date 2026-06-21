@@ -31,6 +31,7 @@ const App = {
                 bgm.play().then(() => {
                     musicToggle.classList.remove('muted');
                     document.removeEventListener('click', tryAutoPlay);
+                    document.removeEventListener('touchend', tryAutoPlay);
                 }).catch((e) => {
                     musicToggle.classList.add('muted');
                     console.log("Autoplay blocked, waiting for next tap.", e);
@@ -38,6 +39,7 @@ const App = {
             };
 
             document.addEventListener('click', tryAutoPlay);
+            document.addEventListener('touchend', tryAutoPlay);
             musicToggle.classList.add('muted');
         }
 
