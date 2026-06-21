@@ -72,6 +72,26 @@ const AutoScroll = {
                 }, 2500);
             }, { passive: true });
 
+            // ── Lazy Loading Khusus Marquee ──
+            // Hanya me-load gambar saat gambar tersebut mendekati layar (buffer 800px)
+            // Ini mencegah Android kehabisan memori atau nge-lag saat awal loading.
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.removeAttribute('data-src');
+                        }
+                        obs.unobserve(img);
+                    }
+                });
+            }, { rootMargin: '0px 800px 0px 800px' });
+
+            track.querySelectorAll('.card-img').forEach(img => {
+                observer.observe(img);
+            });
+
             this.tracks.push(track);
         });
     },
