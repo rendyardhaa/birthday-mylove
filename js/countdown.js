@@ -1,6 +1,6 @@
 // Countdown Timer Module
 const CountdownTimer = {
-    targetDate: new Date('2026-06-23T00:00:00+07:00').getTime(), // 23 Juni 2026, 00:00 WIB
+    targetDate: new Date(Date.now() + 3 * 1000).getTime(), // 3 detik untuk testing
     elements: {
         days: document.getElementById('days'),
         hours: document.getElementById('hours'),
