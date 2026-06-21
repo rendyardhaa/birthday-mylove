@@ -1,6 +1,6 @@
 // Countdown Timer Module
 const CountdownTimer = {
-    targetDate: new Date(Date.now() + 3 * 1000).getTime(), // 3 detik untuk testing
+    targetDate: null,
     elements: {
         days: document.getElementById('days'),
         hours: document.getElementById('hours'),
@@ -12,6 +12,18 @@ const CountdownTimer = {
 
     init(callback) {
         this.onComplete = callback;
+        
+        // Waktu target: 23 Juni 2026, Jam 00:00:00 (Bulan di JavaScript dimulai dari 0, jadi 5 = Juni)
+        const realTarget = new Date(2026, 5, 23, 0, 0, 0).getTime();
+        const now = new Date().getTime();
+
+        // Jika dibuka setelah lewat hari H, set hitung mundur menjadi 3 detik dari saat web dibuka
+        if (now >= realTarget) {
+            this.targetDate = now + 3000;
+        } else {
+            this.targetDate = realTarget;
+        }
+
         this.update();
         this.interval = setInterval(() => this.update(), 1000);
     },
