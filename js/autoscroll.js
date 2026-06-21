@@ -30,20 +30,28 @@ const AutoScroll = {
 
             row.appendChild(track);
 
-            // ── Set animasi CSS ──
-            const duration  = 40 + i * 10;
-            if (i % 2 !== 0) {
-                row.classList.add('reverse-row');
-                track.style.cssText += `
-                    animation: autoScrollTrackRight ${duration}s linear infinite normal;
-                    animation-play-state: paused;
-                `;
-            } else {
-                track.style.cssText += `
-                    animation: autoScrollTrack ${duration}s linear infinite normal;
-                    animation-play-state: paused;
-                `;
-            }
+            // ── Set animasi CSS dengan durasi dinamis berdasarkan lebar ──
+            // requestAnimationFrame memastikan browser sudah menghitung lebar elemen
+            requestAnimationFrame(() => {
+                const halfWidth = track.scrollWidth / 2;
+                // Target speed: ~60 pixel per detik agar seragam di semua baris
+                // Kita beri sedikit variasi kecil antar baris agar terlihat natural
+                const speed = 60 - (i * 2); // Baris bawah sedikit lebih lambat 
+                const duration = halfWidth / speed;
+
+                if (i % 2 !== 0) {
+                    row.classList.add('reverse-row');
+                    track.style.cssText += `
+                        animation: autoScrollTrackRight ${duration}s linear infinite normal;
+                        animation-play-state: paused;
+                    `;
+                } else {
+                    track.style.cssText += `
+                        animation: autoScrollTrack ${duration}s linear infinite normal;
+                        animation-play-state: paused;
+                    `;
+                }
+            });
 
             // ── Pause saat hover (desktop) ──
             row.addEventListener('mouseenter', () => {
