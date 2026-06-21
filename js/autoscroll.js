@@ -30,53 +30,54 @@ const AutoScroll = {
 
             row.appendChild(track);
 
-            // JS Animation Setup
-            let isPaused = true; // start paused
-            let pos = 0;
-            // Kecepatan berdasarkan index (baris ganjil/genap)
-            const speed = i % 2 === 0 ? 0.6 : -0.6; // Baris 1 & 3 ke kiri, 2 & 4 ke kanan
-            
-            const animate = () => {
-                if (!isPaused && track.scrollWidth > 0) {
-                    const halfWidth = track.scrollWidth / 2;
-                    if (speed > 0) {
-                        pos += speed;
-                        if (pos >= halfWidth) pos -= halfWidth;
-                    } else {
-                        pos += speed;
-                        if (pos <= 0) pos += halfWidth;
-                    }
-                    track.style.transform = `translateX(-${pos}px)`;
-                }
-                requestAnimationFrame(animate);
-            };
-
-            // Inisialisasi posisi awal reverse
-            setTimeout(() => {
-                if (speed < 0) pos = track.scrollWidth / 2;
-                requestAnimationFrame(animate);
-            }, 100);
+            // ── Set animasi CSS ──
+            const duration  = 40 + i * 10;
+            if (i % 2 !== 0) {
+                row.classList.add('reverse-row');
+                track.style.cssText += `
+                    animation: autoScrollTrackRight ${duration}s linear infinite normal;
+                    animation-play-state: paused;
+                `;
+            } else {
+                track.style.cssText += `
+                    animation: autoScrollTrack ${duration}s linear infinite normal;
+                    animation-play-state: paused;
+                `;
+            }
 
             // ── Pause saat hover (desktop) ──
-            row.addEventListener('mouseenter', () => { isPaused = true; });
-            row.addEventListener('mouseleave', () => { isPaused = false; });
+            row.addEventListener('mouseenter', () => {
+                track.style.animationPlayState = 'paused';
+            });
+            row.addEventListener('mouseleave', () => {
+                track.style.animationPlayState = 'running';
+            });
 
             // ── Pause saat touch (mobile) ──
-            row.addEventListener('touchstart', () => { isPaused = true; }, { passive: true });
-            row.addEventListener('touchend', () => {
-                setTimeout(() => { isPaused = false; }, 2500);
+            row.addEventListener('touchstart', () => {
+                track.style.animationPlayState = 'paused';
             }, { passive: true });
 
-            this.tracks.push({ track, play: () => isPaused = false, stop: () => isPaused = true });
+            row.addEventListener('touchend', () => {
+                setTimeout(() => {
+                    track.style.animationPlayState = 'running';
+                }, 2500);
+            }, { passive: true });
+
+            this.tracks.push(track);
         });
     },
 
     start() {
-        this.tracks.forEach(t => t.play());
+        this.tracks.forEach(track => {
+            track.style.animationPlayState = 'running';
+        });
     },
 
     stop() {
-        this.tracks.forEach(t => t.stop());
+        this.tracks.forEach(track => {
+            track.style.animationPlayState = 'paused';
+        });
     }
 };
 

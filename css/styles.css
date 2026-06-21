@@ -1342,6 +1342,23 @@ body.dark-mode {
     padding: 0.4rem 0;      /* sedikit ruang atas-bawah agar shadow card tidak terpotong */
 }
 
+@keyframes autoScrollTrack {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+@keyframes autoScrollTrackRight {
+    from { transform: translateX(0); }
+    to   { transform: translateX(50%); }
+}
+
+.reverse-row {
+    direction: rtl; /* Layout from right to left */
+}
+.reverse-row .memory-card {
+    direction: ltr; /* Keep text inside card reading from left to right */
+}
+
 /* ─── Memory Card (Premium Polaroid Style) ─── */
 .memory-card {
     flex: 0 0 260px;
