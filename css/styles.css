@@ -1340,18 +1340,6 @@ body.dark-mode {
     width: max-content;     /* tumbuh sesuai total lebar semua card */
     min-width: 100%;        /* fallback: agar track tidak width=0 di WebKit iOS */
     padding: 0.4rem 0;      /* sedikit ruang atas-bawah agar shadow card tidak terpotong */
-    transform: translate3d(0, 0, 0); /* iOS Safari GPU acceleration */
-    -webkit-transform: translate3d(0, 0, 0);
-}
-
-@keyframes autoScrollTrack {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
-}
-
-@keyframes autoScrollTrackReverse {
-    from { transform: translateX(-50%); opacity: 0.99; }
-    to   { transform: translateX(0); opacity: 1; }
 }
 
 /* ─── Memory Card (Premium Polaroid Style) ─── */
