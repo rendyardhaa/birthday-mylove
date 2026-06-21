@@ -27,18 +27,23 @@ const App = {
                 }
             });
 
+            // Trick mobile browsers into firing 'click' events on empty space
+            document.body.style.cursor = 'pointer';
+
             const tryAutoPlay = () => {
                 bgm.play().then(() => {
                     musicToggle.classList.remove('muted');
                     document.removeEventListener('click', tryAutoPlay);
-                    document.removeEventListener('touchstart', tryAutoPlay);
-                }).catch(() => {
+                    document.removeEventListener('touchend', tryAutoPlay);
+                    document.body.style.cursor = ''; // Cleanup trick
+                }).catch((e) => {
                     musicToggle.classList.add('muted');
+                    console.log("Menunggu interaksi user yang sah...", e);
                 });
             };
 
             document.addEventListener('click', tryAutoPlay);
-            document.addEventListener('touchstart', tryAutoPlay, { passive: true });
+            document.addEventListener('touchend', tryAutoPlay, { passive: true });
             musicToggle.classList.add('muted');
         }
 
