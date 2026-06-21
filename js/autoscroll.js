@@ -38,10 +38,10 @@ const AutoScroll = {
 
             // ── Set animasi CSS (SYNC - tidak ada requestAnimationFrame) ──
             const duration  = 40 + i * 10;              // lebih lambat: 40s & 50s
-            const direction = i % 2 === 0 ? 'normal' : 'reverse';
+            const animName = i % 2 === 0 ? 'autoScrollTrack' : 'autoScrollTrackReverse';
 
             track.style.cssText += `
-                animation: autoScrollTrack ${duration}s linear infinite ${direction};
+                animation: ${animName} ${duration}s linear infinite normal;
                 animation-play-state: paused;
             `;
 

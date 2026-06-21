@@ -13,10 +13,10 @@ const App = {
         // Setup background music
         const bgm = document.getElementById('bgm');
         const musicToggle = document.getElementById('music-toggle');
-        
+
         if (bgm && musicToggle) {
             bgm.volume = 0.5; // Set starting volume to 50%
-            
+
             musicToggle.addEventListener('click', () => {
                 if (bgm.paused) {
                     bgm.play();
@@ -27,38 +27,33 @@ const App = {
                 }
             });
 
-            // Trick mobile browsers into firing 'click' events on empty space
-            document.body.style.cursor = 'pointer';
-
             const tryAutoPlay = () => {
                 bgm.play().then(() => {
                     musicToggle.classList.remove('muted');
                     document.removeEventListener('click', tryAutoPlay);
-                    document.removeEventListener('touchend', tryAutoPlay);
-                    document.body.style.cursor = ''; // Cleanup trick
-                }).catch((e) => {
+                    document.removeEventListener('touchstart', tryAutoPlay);
+                }).catch(() => {
                     musicToggle.classList.add('muted');
-                    console.log("Menunggu interaksi user yang sah...", e);
                 });
             };
 
             document.addEventListener('click', tryAutoPlay);
-            document.addEventListener('touchend', tryAutoPlay, { passive: true });
+            document.addEventListener('touchstart', tryAutoPlay, { passive: true });
             musicToggle.classList.add('muted');
         }
 
         // Initialize countdown with callback to move to GREETING stage
         CountdownTimer.init(() => this.moveToStage('greeting'));
-        
+
         // Setup mailbox interaction
         this.setupMailbox();
-        
+
         // Setup memories button
         this.setupMemoriesButton();
-        
+
         // Create floating hearts for countdown
         this.createFloatingHearts();
-        
+
         // Create floating petals for mailbox
         this.createFloatingPetals();
 
@@ -71,7 +66,7 @@ const App = {
         const container = document.getElementById('floating-hearts');
         const hearts = ['♥', '❤', '♡', '❦'];
         const colors = ['#D4A96A', '#E8A0A8', '#C9707A', '#F0D5A8', '#9B545C', '#FFFDF9'];
-        
+
         for (let i = 0; i < 15; i++) {
             setTimeout(() => {
                 const heart = document.createElement('div');
@@ -88,7 +83,7 @@ const App = {
 
     createFloatingPetals() {
         const container = document.getElementById('floating-petals');
-        
+
         for (let i = 0; i < 20; i++) {
             setTimeout(() => {
                 const petal = document.createElement('div');
@@ -121,10 +116,10 @@ const App = {
                     ? Math.random() * 22          // 0–22% (sisi kiri)
                     : 78 + Math.random() * 22;    // 78–100% (sisi kanan)
 
-                heart.style.left   = xPos + '%';
+                heart.style.left = xPos + '%';
                 heart.style.bottom = Math.random() * 30 + '%';
                 heart.style.animationDuration = (Math.random() * 4 + 5) + 's';
-                heart.style.animationDelay    = (Math.random() * 4) + 's';
+                heart.style.animationDelay = (Math.random() * 4) + 's';
                 heart.style.fontSize = (Math.random() * 14 + 14) + 'px';
                 // Hati sisi kiri lebih kecil agar tidak nabrak surat
                 heart.style.opacity = (Math.random() * 0.4 + 0.5).toString();
@@ -143,15 +138,15 @@ const App = {
                 // Juga sebar di kiri & kanan — sebagian kecil di tengah atas/bawah
                 let xPos;
                 const zone = Math.random();
-                if (zone < 0.4)      xPos = Math.random() * 20;         // kiri
+                if (zone < 0.4) xPos = Math.random() * 20;         // kiri
                 else if (zone < 0.8) xPos = 80 + Math.random() * 20;   // kanan
-                else                 xPos = 20 + Math.random() * 60;   // tengah (sedikit)
+                else xPos = 20 + Math.random() * 60;   // tengah (sedikit)
 
-                star.style.left   = xPos + '%';
-                star.style.top    = Math.random() * 90 + '%';
+                star.style.left = xPos + '%';
+                star.style.top = Math.random() * 90 + '%';
                 star.style.fontSize = (Math.random() * 10 + 10) + 'px';
                 star.style.animationDuration = (Math.random() * 2 + 2) + 's';
-                star.style.animationDelay    = (Math.random() * 5) + 's';
+                star.style.animationDelay = (Math.random() * 5) + 's';
                 // Warna berganti antara gold & rose
                 star.style.color = Math.random() < 0.5 ? '#D4A96A' : '#E8A0A8';
                 sparklesContainer.appendChild(star);
@@ -163,12 +158,12 @@ const App = {
         for (let i = 0; i < 12; i++) {
             setTimeout(() => {
                 const petal = document.createElement('div');
-                petal.style.position   = 'absolute';
-                petal.style.fontSize   = (Math.random() * 10 + 12) + 'px';
-                petal.style.color      = Math.random() < 0.5 ? '#E8A0A8' : '#C9707A';
-                petal.style.opacity    = '0';
+                petal.style.position = 'absolute';
+                petal.style.fontSize = (Math.random() * 10 + 12) + 'px';
+                petal.style.color = Math.random() < 0.5 ? '#E8A0A8' : '#C9707A';
+                petal.style.opacity = '0';
                 petal.style.pointerEvents = 'none';
-                petal.style.zIndex     = '1';
+                petal.style.zIndex = '1';
                 petal.textContent = petalChars[Math.floor(Math.random() * petalChars.length)];
 
                 // Spawn dari kiri atau kanan
@@ -182,12 +177,12 @@ const App = {
 
                 // Animasi jatuh manual
                 const duration = Math.random() * 5000 + 6000;
-                const drift    = (Math.random() * 60 - 30) * (isLeft ? 1 : -1);
+                const drift = (Math.random() * 60 - 30) * (isLeft ? 1 : -1);
                 petal.animate([
-                    { opacity: 0,   transform: `translateY(0px) translateX(0px) rotate(0deg)` },
+                    { opacity: 0, transform: `translateY(0px) translateX(0px) rotate(0deg)` },
                     { opacity: 0.8, transform: `translateY(20vh) translateX(${drift * 0.3}px) rotate(120deg)`, offset: 0.15 },
                     { opacity: 0.7, transform: `translateY(60vh) translateX(${drift}px) rotate(280deg)`, offset: 0.7 },
-                    { opacity: 0,   transform: `translateY(105vh) translateX(${drift * 1.2}px) rotate(400deg)` }
+                    { opacity: 0, transform: `translateY(105vh) translateX(${drift * 1.2}px) rotate(400deg)` }
                 ], {
                     duration,
                     delay: Math.random() * 4000,
@@ -214,7 +209,7 @@ const App = {
                 ? (Math.random() * 18) + '%'
                 : (82 + Math.random() * 16) + '%';
             el.style.left = left;
-            el.style.top  = (Math.random() * 85 + 5) + '%';
+            el.style.top = (Math.random() * 85 + 5) + '%';
 
             sparklesContainer.appendChild(el);
             el.animate([
@@ -222,7 +217,7 @@ const App = {
                 { opacity: 1, transform: `scale(1.4) translateY(-${Math.random() * 20 + 10}px)`, offset: 0.5 },
                 { opacity: 0, transform: `scale(0.5) translateY(-${Math.random() * 35 + 20}px)` }
             ], { duration: Math.random() * 1500 + 1500, easing: 'ease-out', fill: 'both' })
-            .onfinish = () => el.remove();
+                .onfinish = () => el.remove();
         }, 300);
     },
 
@@ -237,29 +232,29 @@ const App = {
         const mailboxWrapper = document.querySelector('.mailbox-wrapper');
         const mailboxDoor = document.querySelector('.mailbox-door');
         const instruction = document.querySelector('.mailbox-instruction');
-        
+
         if (!mailboxWrapper) return;
-        
+
         mailboxWrapper.addEventListener('click', () => {
             if (this.currentStage !== 'mailbox' || mailboxWrapper.classList.contains('opened')) return;
-            
+
             // Trigger door, flag, and letter animation
             mailboxWrapper.classList.add('opened');
             if (instruction) {
                 instruction.style.animation = 'none';
                 instruction.style.opacity = '0';
             }
-            
+
             // Get position for fireworks
             const rect = mailboxDoor.getBoundingClientRect();
             const centerX = rect.left + rect.width / 2;
             const centerY = rect.top;
-            
+
             // Start fountain fireworks as the letter flies out
             setTimeout(() => {
                 if (window.FountainFireworks) FountainFireworks.start(centerX, centerY);
             }, 400);
-            
+
             // Show full screen letter after animations
             setTimeout(() => {
                 this.showLetter();
@@ -270,10 +265,10 @@ const App = {
     showLetter() {
         const letterContainer = document.getElementById('letter-container');
         letterContainer.classList.add('visible');
-        
+
         // Create romantic effects for letter
         this.createLetterEffects();
-        
+
         // Initialize and start typewriter
         Typewriter.init(() => {
             // Show button after typing completes
@@ -282,7 +277,7 @@ const App = {
                 btn.classList.add('visible');
             }, 500);
         });
-        
+
         setTimeout(() => {
             Typewriter.start();
         }, 800);
@@ -299,7 +294,7 @@ const App = {
         // Fade out current stage
         const currentStageEl = this.stages[this.currentStage];
         currentStageEl.classList.remove('active');
-        
+
         // Update body class for dark mode if moving to memories
         if (stageName === 'memories') {
             document.body.classList.add('dark-mode');
@@ -312,7 +307,7 @@ const App = {
             Galaxy.stop();
             AutoScroll.stop();
         }
-        
+
         // Fade in new stage
         setTimeout(() => {
             this.currentStage = stageName;
@@ -339,12 +334,12 @@ const App = {
                     // Wait 2.5 seconds, then EXPLODE!
                     setTimeout(() => {
                         text.classList.add('explode');
-                        
+
                         // Start fountain fireworks as the explosion hits
                         if (window.FountainFireworks) {
                             FountainFireworks.start(window.innerWidth / 2, window.innerHeight / 2);
                         }
-                        
+
                         // After explosion finishes, move to cake
                         setTimeout(() => {
                             this.moveToStage('cake');
@@ -364,7 +359,7 @@ const App = {
                         const fireflies = document.querySelector('.cake-fireflies');
                         if (spotlight) spotlight.classList.add('blown-out');
                         if (fireflies) fireflies.classList.add('blown-out');
-                        
+
                         // --- CREATE WIND EFFECT ---
                         const windContainer = document.getElementById('wind-container');
                         if (windContainer) {
@@ -379,11 +374,11 @@ const App = {
                                 }, i * 80);
                             }
                         }
-                        
+
                         // Tunggu 2.5 detik untuk efek dramatis api mati & angin reda, lalu pindah ke kotak surat
                         setTimeout(() => {
                             this.moveToStage('mailbox');
-                            
+
                             // Cleanup wind classes so it resets if visited again
                             if (flame) flame.classList.remove('blown-out');
                             if (spotlight) spotlight.classList.remove('blown-out');
