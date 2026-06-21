@@ -1335,9 +1335,7 @@ body.dark-mode {
 .memory-track {
     display: flex;
     flex-wrap: nowrap;
-    /* width dihitung via JavaScript untuk Safari compatibility */
-    /* HAPUS: width: max-content; */
-    /* HAPUS: will-change: transform; — bisa cause rendering issues di Safari */
+    width: max-content;     /* tumbuh sesuai total lebar semua card */
     padding: 0.4rem 0;      /* sedikit ruang atas-bawah agar shadow card tidak terpotong */
 }
 
