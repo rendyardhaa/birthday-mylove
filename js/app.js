@@ -31,14 +31,13 @@ const App = {
                 bgm.play().then(() => {
                     musicToggle.classList.remove('muted');
                     document.removeEventListener('click', tryAutoPlay);
-                    document.removeEventListener('touchstart', tryAutoPlay);
-                }).catch(() => {
+                }).catch((e) => {
                     musicToggle.classList.add('muted');
+                    console.log("Autoplay blocked, waiting for next tap.", e);
                 });
             };
 
             document.addEventListener('click', tryAutoPlay);
-            document.addEventListener('touchstart', tryAutoPlay, { passive: true });
             musicToggle.classList.add('muted');
         }
 
